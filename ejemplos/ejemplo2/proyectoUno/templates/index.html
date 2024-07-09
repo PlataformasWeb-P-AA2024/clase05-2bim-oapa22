@@ -1,53 +1,170 @@
 {% extends "master.html" %}
-
 {% block title %}
   Listado de Estudiantes
 {% endblock %}
 
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Verti by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload no-sidebar">
+		<div id="page-wrapper">
 {% block content %}
-<h3>Número de estudiantes {{ numero_estudiantes }}</h3>
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div id="content">
 
-<table id="tabla_datos">
+							<!-- Content -->
+								<h3>Número de estudiantes {{ numero_estudiantes }}</h3>
 
-  <thead>
-    <tr>
-      <th>Estudiante</th>
-      <th>Cedula</th>
-      <th>Correo</th>
-      <th>Numeros Telefónico </th>
-      <th>Opciones</th>
-    </tr>
-  </thead>
+									<table id="tabla_datos">
 
-  {% for e in estudiantes %}
-  <tr>
-    <td> {{e.nombre}} {{e.apellido}}</td>
-    <td> {{e.cedula}}</td>
-    <td> {{e.correo}}</td>
-    <td>
-      <ul>
-        {% for t in e.numeros_telefonicos.all %}
-          <li>
-            <span>{{t.telefono}} - {{t.tipo}} - [<a href="{% url 'editar_numero_telefonico' t.id %}">editar</a>] </span>
-          </li>
-        {% endfor %}
-      </ul>
-        [<a href="{% url 'crear_numero_telefonico_estudiante' e.id%}">+Teléfono</a>]
-    </td>
-    <td> <a href="{% url 'obtener_estudiante' e.id %}">ver</a> <br>
-      <a href="{% url 'editar_estudiante' e.id %}">editar</a> <br>
-      <a href="{% url 'eliminar_estudiante' e.id %}"
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
-      eliminar</a>
-    </td>
+									  <thead>
+									    <tr>
+									      <th>Estudiante</th>
+									      <th>Cedula</th>
+									      <th>Correo</th>
+									      <th>Numeros Telefónico </th>
+									      <th>Opciones</th>
+									    </tr>
+									  </thead>
 
-  </tr>
-  {% endfor %}
-</table>
+									  {% for e in estudiantes %}
+									  <tr>
+									    <td> {{e.nombre}} {{e.apellido}}</td>
+									    <td> {{e.cedula}}</td>
+									    <td> {{e.correo}}</td>
+									    <td>
+									      <ul>
+									        {% for t in e.numeros_telefonicos.all %}
+									          <li>
+									            <span>{{t.telefono}} - {{t.tipo}} - [<a href="{% url 'editar_numero_telefonico' t.id %}">editar</a>] </span>
+									          </li>
+									        {% endfor %}
+									      </ul>
+									        [<a href="{% url 'crear_numero_telefonico_estudiante' e.id%}">+Teléfono</a>]
+									    </td>
+									    <td> <a href="{% url 'obtener_estudiante' e.id %}">ver</a> <br>
+									      <a href="{% url 'editar_estudiante' e.id %}">editar</a> <br>
+									      <a href="{% url 'eliminar_estudiante' e.id %}"
+									      onclick="return confirm('¿Está seguro de la eliminación?')" >
+									      eliminar</a>
+									    </td>
 
-<script type="text/javascript">
-  $(document).ready( function () {
-    $('#tabla_datos').DataTable();
-  });
-</script>
-{% endblock %}
+									  </tr>
+									  {% endfor %}
+									</table>
+
+									<script type="text/javascript">
+									  $(document).ready( function () {
+									    $('#tabla_datos').DataTable();
+									  });
+									</script>
+
+						</div>
+					</div>
+				</div>
+        {% endblock %}
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Random Stuff</h3>
+										<ul class="style2">
+											<li><a href="#">Etiam feugiat condimentum</a></li>
+											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+											<li><a href="#">Sed porttitor cras in erat nec</a></li>
+											<li><a href="#">Felis varius pellentesque potenti</a></li>
+											<li><a href="#">Nullam scelerisque blandit leo</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Random Stuff</h3>
+										<ul class="style2">
+											<li><a href="#">Etiam feugiat condimentum</a></li>
+											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+											<li><a href="#">Sed porttitor cras in erat nec</a></li>
+											<li><a href="#">Felis varius pellentesque potenti</a></li>
+											<li><a href="#">Nullam scelerisque blandit leo</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Random Stuff</h3>
+										<ul class="style2">
+											<li><a href="#">Etiam feugiat condimentum</a></li>
+											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+											<li><a href="#">Sed porttitor cras in erat nec</a></li>
+											<li><a href="#">Felis varius pellentesque potenti</a></li>
+											<li><a href="#">Nullam scelerisque blandit leo</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Contact -->
+									<section class="widget contact">
+										<h3>Contact Us</h3>
+										<ul>
+											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+										</ul>
+										<p>1234 Fictional Road<br />
+										Nashville, TN 00000<br />
+										(800) 555-0000</p>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

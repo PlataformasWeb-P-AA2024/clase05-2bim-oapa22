@@ -1558,7 +1558,7 @@ input, select, textarea {
 	}
 
 		table tr {
-			border-top: solid 1px #eee;
+			border-top: solid 2px #000000;
 		}
 
 			table tr:first-child {
