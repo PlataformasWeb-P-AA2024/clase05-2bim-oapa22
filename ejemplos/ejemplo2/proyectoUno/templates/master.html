@@ -1,63 +1,232 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+	<head>
+		<title>Verti by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		{% load static %}
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+	    <title>
+	      {% block title %}
+	      {% endblock %}
+	    </title>
 
-    <title>
-      {% block title %}
-      {% endblock %}
-    </title>
-  </head>
-  <body>
-    <!-- paso 5-->
-    {% load socialaccount %}
-    {% load account %}
-  <header>
-    <img src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image">
-    <h1>Aplicación Administración - 2 </h1>
+	</head>
+	<body class="is-preload homepage">
+	    {% load socialaccount %}
+		{% load account %}
+		<div id="page-wrapper">
 
-    <div class="">
-        {% if messages %}
-          <div class="messages">
-            {% for message in messages %}
-            <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
-    </div>
-    <nav class="top_menu">
-      <ul>
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
 
-        {% if user.is_authenticated %}
-          <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
-        {% endif %}
-        <li><a href="{% url 'index' %}">inicio</a></li>
-        <li><a href="{% url 'crear_estudiante' %}">agregar estudiante</a></li>
-        <li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
-        {% if user.is_authenticated %}
-          <li><a href="{% url 'logout_view' %}">salir</a></li>
-        {% else %}
-          <li>[<a href="{% url 'login' %}">ingresar</a>]</li>
-          <li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
-        {% endif %}
-      </ul>
-    </nav>
-  </header>
-  <section>
-      {% block content %}
-      {% endblock %}
-  </section>
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="index.html">Verti</a></h1>
+								<span>by HTML5 UP</span>
+							</div>
 
-    <footer>
-      <p>Loja-Ecuador</p>
-      <p>{% now "j F Y H:i" %}</p>
-    </footer>
-  </body>
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="{% url 'index' %}">Inicio</a></li>
+							        {% if user.is_authenticated %}
+         							<li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
+        							{% endif %}
+									<li>
+										<a href="#">Dropdown</a>
+										<ul>
+											<li><a href="#">Lorem ipsum dolor</a></li>
+											<li><a href="#">Magna phasellus</a></li>
+											<li>
+												<a href="#">Phasellus consequat</a>
+												<ul>
+													<li><a href="#">Lorem ipsum dolor</a></li>
+													<li><a href="#">Phasellus consequat</a></li>
+													<li><a href="#">Magna phasellus</a></li>
+													<li><a href="#">Etiam dolore nisl</a></li>
+												</ul>
+											</li>
+											<li><a href="#">Veroeros feugiat</a></li>
+										</ul>
+									</li>
+									<li><a href="{% url 'crear_estudiante' %}">Agregar estudiante</a></li>
+									<li><a href="{% url 'crear_numero_telefonico' %}">agregar telefono</a></li>
+									{% if user.is_authenticated %}
+      								<li><a href="{% url 'logout_view' %}">salir</a></li>
+       								{% else %}
+         							<li>[<a href="{% url 'login' %}">ingresar</a>]</li>
+          							<li>[<a href="{% provider_login_url 'github' %}">ingresar con GitHub</a>]</li>
+        							{% endif %}
+								</ul>
+							</nav>
+
+					</header>
+				</div>
+
+			<!-- Banner -->
+				<div id="banner-wrapper">
+					<div id="banner" class="box container">
+						<div class="row">
+							<div class="col-7 col-12-medium">
+								<h2>Hi. This is Verti.</h2>
+								<p>It's a free responsive site template by HTML5 UP</p>
+							</div>
+							<div class="col-5 col-12-medium">
+								<ul>
+									<li><a href="#" class="button large icon solid fa-arrow-circle-right">Ok let's go</a></li>
+									<li><a href="#" class="button alt large icon solid fa-question-circle">More info</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Features -->
+				<div id="features-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-4 col-12-medium">
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div class="row gtr-200">
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+									<div id="sidebar">
+										<section class="widget thumbnails">
+											<h3>Interesting stuff</h3>
+											<div class="grid">
+												<div class="row gtr-50">
+													<div class="col-6"><a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a></div>
+													<div class="col-6"><a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a></div>
+													<div class="col-6"><a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a></div>
+													<div class="col-6"><a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a></div>
+												</div>
+											</div>
+											<a href="#" class="button icon fa-file-alt">More</a>
+										</section>
+									</div>
+
+							</div>
+							<div class="col-8 col-12-medium imp-medium">
+
+								<!-- Content -->
+                {% block content %}
+                {% endblock %}
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Random Stuff</h3>
+										<ul class="style2">
+											<li><a href="#">Etiam feugiat condimentum</a></li>
+											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+											<li><a href="#">Sed porttitor cras in erat nec</a></li>
+											<li><a href="#">Felis varius pellentesque potenti</a></li>
+											<li><a href="#">Nullam scelerisque blandit leo</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Random Stuff</h3>
+										<ul class="style2">
+											<li><a href="#">Etiam feugiat condimentum</a></li>
+											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+											<li><a href="#">Sed porttitor cras in erat nec</a></li>
+											<li><a href="#">Felis varius pellentesque potenti</a></li>
+											<li><a href="#">Nullam scelerisque blandit leo</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Links -->
+									<section class="widget links">
+										<h3>Random Stuff</h3>
+										<ul class="style2">
+											<li><a href="#">Etiam feugiat condimentum</a></li>
+											<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+											<li><a href="#">Sed porttitor cras in erat nec</a></li>
+											<li><a href="#">Felis varius pellentesque potenti</a></li>
+											<li><a href="#">Nullam scelerisque blandit leo</a></li>
+										</ul>
+									</section>
+
+							</div>
+							<div class="col-3 col-6-medium col-12-small">
+
+								<!-- Contact -->
+									<section class="widget contact last">
+										<h3>Contact Us</h3>
+										<ul>
+											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+										</ul>
+										<p>1234 Fictional Road<br />
+										Nashville, TN 00000<br />
+										(800) 555-0000</p>
+									</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									<ul class="menu">
+										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
